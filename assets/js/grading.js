@@ -1,1 +1,5 @@
-alert("Link to grading.js");
+function findGrade() {
+    return "Pass";
+}
+
+module.exports = findGrade;
