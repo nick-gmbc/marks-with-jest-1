@@ -1,4 +1,8 @@
- const findGrade = require("../grading.js");
+/**
+ * @jest-environment jsdom
+ */
+
+const findGrade = require("../grading.js");
 
  describe ("Grading", () => {
     test("Should return Pass given a mark of 100", () =>{

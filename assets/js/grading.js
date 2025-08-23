@@ -13,5 +13,10 @@ function findGrade(mark) {
     return grade;
 }
 
+function gradeButtonClick() {
+    //
+}
+
 module.exports = findGrade;
+module.exports = gradeButtonClick;
 
