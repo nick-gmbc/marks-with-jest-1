@@ -4,4 +4,13 @@
     test("Should return Pass given a mark of 100", () =>{
         expect(findGrade(100)).toBe("Pass");
     });
+    test("Should return Pass given a mark of 50", () =>{
+        expect(findGrade(50)).toBe("Pass");
+    });
+    test("Should return Fail given a mark of 39", () =>{
+        expect(findGrade(39)).toBe("Fail");
+    });
+    test("Should return Pass given a mark of 40", () =>{
+        expect(findGrade(40)).toBe("Pass");
+    });
  });
