@@ -19,4 +19,10 @@
     test('throws an exception if mark is negative', () => {
         expect(() => findGrade(1.1)).toThrow('Mark must be integer');
     });
+    test('throws an exception if mark is not a number', () => {
+        expect(() => findGrade("cat")).toThrow('Mark must be numeric');
+    });
+    test('throws an exception if a value for mark is not passed', () => {
+        expect(() => findGrade()).toThrow('A single integer argument must be passed');
+    });
  });
