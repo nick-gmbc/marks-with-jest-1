@@ -13,4 +13,7 @@
     test("Should return Pass given a mark of 40", () =>{
         expect(findGrade(40)).toBe("Pass");
     });
+    test('throws an mark is negative', () => {
+        expect(() => findGrade(-1)).toThrow('Mark cannot be negative');
+    });
  });
