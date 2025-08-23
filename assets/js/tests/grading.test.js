@@ -14,7 +14,7 @@
         expect(findGrade(40)).toBe("Pass");
     });
     test('throws an exception if mark is negative', () => {
-        expect(() => findGrade(-1)).toThrow('Mark must be 0 of greater');
+        expect(() => findGrade(-1)).toThrow('Mark must be 0 than greater');
     });
     test('throws an exception if mark is negative', () => {
         expect(() => findGrade(1.1)).toThrow('Mark must be integer');
@@ -24,5 +24,8 @@
     });
     test('throws an exception if a value for mark is not passed', () => {
         expect(() => findGrade()).toThrow('A single integer argument must be passed');
+    });
+    test('throws an exception if a value for mark null', () => {
+        expect(() => findGrade(null)).toThrow('Mark cannot be null');
     });
  });
