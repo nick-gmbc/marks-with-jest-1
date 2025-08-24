@@ -14,9 +14,12 @@ function findGrade(mark) {
 }
 
 function gradeButtonClick() {
-    //
+    const mark = document.getElementById("mark").value;
+    document.getElementById("result").innerHTML = findGrade(parseInt(mark));
+
 }
 
-module.exports = findGrade;
-module.exports = gradeButtonClick;
+module.exports = { findGrade, gradeButtonClick };
+
+
 

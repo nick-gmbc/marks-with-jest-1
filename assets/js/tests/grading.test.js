@@ -2,7 +2,20 @@
  * @jest-environment jsdom
  */
 
-const findGrade = require("../grading.js");
+const {findGrade}  = require("../grading.js");
+const {gradeButtonClick}  = require("../grading.js");
+
+//import { findGrade, gradeButtonClick } from "../grading.js";
+
+beforeEach(() => {
+    document.body.innerHTML = "<p id='par'></p>";
+    let fs = require("fs");
+    let fileContents = fs.readFileSync("index.html","utf-8");
+    document.open();
+    document.write(fileContents);
+    document.close();
+
+});
 
  describe ("Grading", () => {
     test("Should return Pass given a mark of 100", () =>{
@@ -33,3 +46,18 @@ const findGrade = require("../grading.js");
         expect(() => findGrade(null)).toThrow('Mark cannot be null');
     });
  });
+
+describe("DOM tests", () => {
+   test("Expects content to change to Pass", () => {
+        const input = document.getElementById("mark");
+        input.value = "100";
+        gradeButtonClick();
+        expect(document.getElementById("result").innerHTML).toEqual("Pass");
+    });
+   test("Expects content to change to Fail", () => {
+        const input = document.getElementById("mark");
+        input.value = "39";
+        gradeButtonClick();
+        expect(document.getElementById("result").innerHTML).toEqual("Fail");
+    });
+});
