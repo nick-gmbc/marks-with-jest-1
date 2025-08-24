@@ -3,7 +3,8 @@ function findGrade(mark) {
     if (mark == null) throw('Mark cannot be null');
     if (isNaN(mark)) throw('Mark must be numeric');
     if (!Number.isInteger(mark)) throw('Mark must be integer');
-    if (mark < 0) throw('Mark must be 0 than greater');
+    if (mark < 0) throw('Mark must be than greater 0');
+    if (mark > 100) throw('Mark must be than less than 100');
     let grade = "";
     if (mark >= 40) {
         grade = "Pass";
@@ -14,8 +15,12 @@ function findGrade(mark) {
 }
 
 function gradeButtonClick() {
-    const mark = document.getElementById("mark").value;
-    document.getElementById("result").innerHTML = findGrade(parseInt(mark));
+    try {
+        const mark = document.getElementById("mark").value;
+        document.getElementById("result").innerHTML = findGrade(parseFloat(mark));
+    } catch (err) {
+        document.getElementById("result").innerHTML = err;
+    }
 
 }
 
